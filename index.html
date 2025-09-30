@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTC-ColorCode</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>DTC - ColorCode Mixer</h1>
+            <nav>
+                <a href="#color-picker">Color Picker</a>
+                <a href="#image-picker">Image Picker</a>
+                <a href="#color-wheel">Color Wheel</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Color Picker Section -->
+        <section id="color-picker" class="tool-section">
+            <h2>Color Picker</h2>
+            <div class="color-picker-container">
+                <div class="color-display">
+                    <div class="color-box" id="selectedColor"></div>
+                    <div class="color-values">
+                        <div class="color-format">
+                            <label>HEX</label>
+                            <input type="text" id="hexValue" value="#4285f4" placeholder="#RRGGBB">
+                        </div>
+                        <div class="color-format">
+                            <label>RGB</label>
+                            <input type="text" id="rgbValue" value="66, 133, 244" placeholder="R, G, B">
+                        </div>
+                        <div class="color-format">
+                            <label>HSL</label>
+                            <input type="text" id="hslValue" value="217, 90%, 61%" placeholder="H, S%, L%">
+                        </div>
+                    </div>
+                </div>
+                <div class="color-controls">
+                    <input type="color" id="colorInput" value="#4285f4">
+                    <div class="slider-container">
+                        <label for="hue">Hue</label>
+                        <input type="range" id="hue" min="0" max="360" value="217">
+                        <label for="saturation">Saturation</label>
+                        <input type="range" id="saturation" min="0" max="100" value="90">
+                        <label for="lightness">Lightness</label>
+                        <input type="range" id="lightness" min="0" max="100" value="61">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Color Picker Section -->
+        <section id="image-picker" class="tool-section">
+            <h2>Image Color Picker</h2>
+            <div class="image-picker-container">
+                <div class="upload-area" id="dropZone">
+                    <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                    <p>Drag & drop an image here or click to upload</p>
+                    <button id="uploadBtn">Choose Image</button>
+                </div>
+                <div class="image-preview">
+                    <canvas id="imageCanvas" style="display: none;"></canvas>
+                    <div id="colorPalette" class="color-palette"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Color Wheel Section -->
+        <section id="color-wheel" class="tool-section">
+            <h2>Color Wheel</h2>
+            <div class="color-wheel-container">
+                <div class="wheel-wrapper">
+                    <canvas id="colorWheel"></canvas>
+                    <div id="colorInfo">
+                        <h3>Selected Color</h3>
+                        <div class="selected-color" id="wheelSelectedColor"></div>
+                        <div class="color-details">
+                            <div class="detail">
+                                <span>HEX:</span>
+                                <span id="wheelHex">#4285f4</span>
+                            </div>
+                            <div class="detail">
+                                <span>RGB:</span>
+                                <span id="wheelRgb">66, 133, 244</span>
+                            </div>
+                            <div class="detail">
+                                <span>HSL:</span>
+                                <span id="wheelHsl">217°, 90%, 61%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="harmony-controls">
+                    <h3>Color Harmonies</h3>
+                    <div class="harmony-buttons">
+                        <button data-harmony="analogous">Analogous</button>
+                        <button data-harmony="complementary">Complementary</button>
+                        <button data-harmony="triadic">Triadic</button>
+                        <button data-harmony="tetradic">Tetradic</button>
+                    </div>
+                    <div id="harmonyColors" class="harmony-colors"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 DTC - ColorCode Mixer.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
