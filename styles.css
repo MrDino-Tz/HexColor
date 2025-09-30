@@ -361,10 +361,112 @@ input[type="range"]::-webkit-slider-thumb {
 /* Footer */
 footer {
     background: var(--white);
-    padding: 1.5rem 0;
-    text-align: center;
-    margin-top: 2rem;
+    padding: 3rem 0 1.5rem;
+    margin-top: 4rem;
     border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    text-align: left;
+}
+
+.footer-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-info p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+    color: var(--text-color);
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.footer-links nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-links a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+    display: inline-block;
+    width: fit-content;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+    padding-left: 5px;
+}
+
+.footer-links a.active {
+    color: var(--primary-color);
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-links a.active::after {
+    content: '→';
+    margin-left: 5px;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.footer-links a.active:hover::after {
+    transform: translateX(3px);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: #666;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    background: #f5f5f5;
+}
+
+.social-links a:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .footer-links nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem 2rem;
+    }
+    
+    .footer-links a {
+        padding: 0.5rem 0;
+    }
 }
 
 /* Responsive Design */
